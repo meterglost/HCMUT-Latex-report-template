@@ -1,0 +1,35 @@
+\documentclass{article}
+
+\usepackage{requirement}
+\usepackage{content/override}
+\usepackage{template/default}
+
+\begin{document}
+
+\pagestyle{titlepage}
+\input{\currfiledir template/titlepage}
+
+\clearpage
+
+\pagestyle{toc}
+\tableofcontents
+\listoffigures
+\listoftables
+
+\clearpage
+
+\input{\currfiledir template/assignment}
+
+\clearpage
+
+\pagestyle{content}
+\setcounter{table}{0}
+\setcounter{figure}{0}
+\onehalfspacing%
+\input{\currfiledir content/content}
+
+\clearpage
+
+\printbibliography%
+
+\end{document}

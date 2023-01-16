@@ -1,0 +1,21 @@
+version: "3.8"
+
+services:
+  texlive:
+    image: texlive/texlive:latest-full
+    working_dir: /latex
+    configs:
+      - source: makefile
+        target: /latex/Makefile
+    volumes:
+      - ./src/template/:/latex/src/template/:ro
+      - ./src/content/:/latex/src/content/:ro
+      - ./src/fonts/:/latex/src/fonts/:ro
+      - ./src/requirement.sty:/latex/src/requirement.sty:ro
+      - ./src/main.tex:/latex/src/main.tex:ro
+      - ./out/:/latex/out/:rw
+    command: make all
+
+configs:
+  makefile:
+    file: ./Makefile

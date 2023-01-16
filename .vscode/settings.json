@@ -1,0 +1,10 @@
+{
+    "path-autocomplete.pathMappings": {
+        "\\currfiledir ": "${fileDirname}"
+    },
+    "path-autocomplete.triggerOutsideStrings": true,
+    "path-autocomplete.disableUpOneFolder": true,
+    "editor.quickSuggestions": {
+        "strings": "on"
+    }
+}

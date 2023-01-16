@@ -1,0 +1,87 @@
+\clearpage
+\section{Table}
+
+\vspace{6pt}
+
+\begin{table}[H]
+    \setcellgapes{10pt}
+    \makegapedcells
+    \centering
+    \begin{tabularx}{\textwidth}{     
+        >{\hsize=0.2\textwidth\raggedright\arraybackslash}X
+        | >{\centering\arraybackslash}X
+        >{\centering\arraybackslash}X
+        >{\centering\arraybackslash}X
+        >{\centering\arraybackslash}X
+        >{\centering\arraybackslash}X
+        >{\centering\arraybackslash}X
+        >{\centering\arraybackslash}X
+        >{\raggedleft\arraybackslash}X
+    }
+    & $NaOH$ & + & $HCl$ & $\xrightarrow{}$ & $NaCl$ & + & $H_2O$ & {} \\
+    \hline
+    Ban đầu & 0.025 & {} & 0.05 & {} & {} & {} & {} & (mol) \\
+    \hline
+    Phản ứng & 0.025 & {} & 0.025 & {} & 0.025 & {} & 0.025 & (mol) \\
+    \hline
+    Dư & 0 & {} & 0.025 & {} & {} & {} & {} & (mol) \\
+    \hline
+    \end{tabularx}
+    \caption{Example 1}
+\end{table}
+
+\begin{table}[H]
+    \setcellgapes{10pt}
+    \makegapedcells
+    \setlist[enumerate]{left=0pt}
+    \centering
+    \begin{tabularx}{\textwidth}{
+        !{\vrule width 1.2pt}
+        >{\setlength{\hsize}{0.2\textwidth}\raggedright\arraybackslash}X 
+        |
+        >{\raggedright\arraybackslash}X 
+        !{\vrule width 1.2pt}
+    }
+    \Xhline{1.2pt}
+    Use-case & Phân công công việc cho nhân viên \\ 
+    \hline
+    Actor & Back officer, Employee \\ 
+    \hline
+    Description & Back officer sử dụng chức năng này để phân công công việc cho Employees \\ 
+    \hline
+    Preconditions & Back officer đã đăng nhập vào ứng dụng, Employee đã đăng nhập vào ứng dụng, Employee đã điểm danh \\ 
+    \hline
+    Postconditions & Employee nhận được thông báo về lịch trình làm việc của mình \\
+    \hline
+    Normal flow &
+    \parbox{\hsize}{
+    \begin{enumerate}
+        \item Ứng dụng hiển thị các lịch trình đã được phân công.
+        \item Back officer chọn tạo lịch trình mới.
+        \item Back officer chọn lộ trình.
+        \item Back officer chọn Employee.
+        \item Back officer chọn công việc cho Employee.
+        \item Back officer xác nhận lịch trình.
+        \item Ứng dụng gửi thông báo về lịch trình cho Employee được phân công.
+    \end{enumerate}
+    } \\
+    \hline
+    Exceptional flow & 
+    \parbox{\hsize}{
+    \begin{enumerate}
+        \item Back officer xác nhận nhưng chưa chọn lộ trình hoặc Employee hoặc công việc cho Employee.
+        \item Back officer chọn trùng lộ trình $\longrightarrow$ Ứng dụng hiển thị cảnh báo.
+    \end{enumerate}
+    } \\
+    \hline
+    Alternative flow &
+    \parbox{\hsize}{
+    \begin{enumerate}
+        \item Back officer hủy lịch trình đang tạo $\longrightarrow$ Quay lại bước 1.
+        \item Back officer muốn chỉnh sửa lịch trình.
+    \end{enumerate}
+    } \\
+    \Xhline{1.2pt}
+    \end{tabularx}
+    \caption{Example 2}
+\end{table}
