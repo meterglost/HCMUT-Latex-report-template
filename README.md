@@ -2,7 +2,7 @@
 
 ## Using Overleaf
 
-On release page, download the src version and upload on Overleaf
+On release page, download the src version, upload on Overleaf, change compiler to `XeLaTeX` and recompile
 
 ## Build locally
 
