@@ -1,21 +1,28 @@
 SHELL 	= /bin/sh
 
+OUTDIR	= ${PWD}/out
+INPDIR	= ${PWD}/src
 
-.PHONY: all
-all: clean build summary
+.PHONY: test
+test: build summary
+
+
+.PHONY: release
+release: clean build clean
+	7z a -tzip src.zip src/*
 
 
 .PHONY: clean
 clean:
-	latexmk -outdir=/latex/out -c /latex/src/main.tex
+	rm -rf ${INPDIR}/_minted*
+	rm -rf ${OUTDIR}/*
 
 
 .PHONY: build
 build:
-	latexmk -outdir=/latex/out -silent -cd -bibtex -xelatex -shell-escape -halt-on-error /latex/src/main.tex
+	latexmk -outdir=${OUTDIR} -silent -cd -xelatex -shell-escape -halt-on-error -synctex=1 ${INPDIR}/main.tex
 
 
 .PHONY: summary
 summary:
-#	texlogsieve --only-summary ./out/main.log
-	texlogfilter --box --ref --filename ./out/main.log
+	texlogfilter --box --ref --filename ${OUTDIR}/main.log
