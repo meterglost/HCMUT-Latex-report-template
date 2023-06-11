@@ -1,0 +1,57 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/docker-existing-dockerfile
+{
+    "name": "Dev env",
+    "build": {
+        // Sets the run context to one level up instead of the .devcontainer folder.
+        "context": "..",
+        // Update the 'dockerFile' property if you aren't using the standard 'Dockerfile' filename.
+        "dockerfile": "../Dockerfile.dev"
+    },
+
+    // Features to add to the dev container. More info: https://containers.dev/features.
+    // "features": {},
+
+    // Use 'forwardPorts' to make a list of ports inside the container available locally.
+    // "forwardPorts": [],
+
+    // Uncomment the next line to run commands after the container is created.
+    "postCreateCommand": "trunk install",
+
+    // Configure tool-specific properties.
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "latex-workshop.bibtex-format.tab": "4 spaces",
+                "latex-workshop.bibtex-format.trailingComma": true,
+                "latex-workshop.intellisense.citation.backend": "biblatex",
+                "latex-workshop.latex.autoBuild.run": "never",
+                "latex-workshop.latex.outDir": "%WORKSPACE_FOLDER%/out",
+                "latex-workshop.latexindent.args": [
+                    "-c",
+                    "%OUTDIR%",
+                    "%TMPFILE%",
+                    "-y=defaultIndent: '%INDENT%'"
+                ],
+                "latex-workshop.synctex.afterBuild.enabled": true,
+
+                "[bibtex][latex][tex]": {
+                    "editor.defaultFormatter": "James-Yu.latex-workshop"
+                },
+
+                "[json][jsonc][dockerfile][markdown][yaml]": {
+                    "editor.defaultFormatter": "trunk.io"
+                }
+            },
+            "extensions": [
+                "trunk.io",
+                "ionutvmi.path-autocomplete",
+                "eamodio.gitlens",
+                "James-Yu.latex-workshop"
+            ]
+        }
+    }
+
+    // Uncomment to connect as an existing user other than the container default. More info: https://aka.ms/dev-containers-non-root.
+    // "remoteUser": "devcontainer"
+}

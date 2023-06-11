@@ -1,0 +1,41 @@
+version: 0.1
+cli:
+  version: 1.10.0
+plugins:
+  sources:
+    - id: trunk
+      ref: v0.0.17
+      uri: https://github.com/trunk-io/plugins
+lint:
+  disabled:
+    - oxipng
+  enabled:
+    - hadolint@2.12.0
+    - git-diff-check
+    - gitleaks@8.16.4
+    - markdownlint@0.34.0
+    - prettier@2.8.8
+    - yamllint@1.32.0
+  ignore:
+    - linters: [ALL]
+      paths:
+        - src/fonts
+        - src/content
+        - "!src/content/**/*.tex"
+runtimes:
+  enabled:
+    - python@3.10.8
+    - go@1.19.5
+    - node@18.12.1
+actions:
+  disabled:
+    - git-lfs
+    - trunk-announce
+    - trunk-check-pre-push
+    - trunk-fmt-pre-commit
+  enabled:
+    - commitlint
+    - trunk-upgrade-available
+  definitions:
+    - id: commitlint
+      run: commitlint --config ${workspace}/.trunk/configs/.commitlintrc.yaml --edit ${1}
