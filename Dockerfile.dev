@@ -3,7 +3,7 @@ FROM docker.io/texlive/texlive:latest-basic
 WORKDIR /workspaces
 
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends curl=* nodejs=* git=* git-lfs=* p7zip-full=* locales=* locales-all=* expect=* \
+    && apt-get install -y --no-install-recommends curl=* nodejs=* git=* p7zip-full=* locales=* locales-all=* expect=* \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 ENV LC_ALL en_US.UTF-8

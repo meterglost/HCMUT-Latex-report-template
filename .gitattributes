@@ -9,20 +9,4 @@ Makefile        text
 *.sty	        text diff=tex
 *.bib	        text diff=bibtex
 
-# Documents
-*.pdf filter=lfs diff=lfs merge=lfs binary
-
-# Images
-*.gif filter=lfs diff=lfs merge=lfs binary
-*.ico filter=lfs diff=lfs merge=lfs binary
-*.jpg filter=lfs diff=lfs merge=lfs binary
-*.png filter=lfs diff=lfs merge=lfs binary
-*.psd filter=lfs diff=lfs merge=lfs binary
-*.eps filter=lfs diff=lfs merge=lfs binary
-*.webp filter=lfs diff=lfs merge=lfs binary
-
-# Fonts
-*.ttf filter=lfs diff=lfs merge=lfs binary
-*.otf filter=lfs diff=lfs merge=lfs binary
-*.woff filter=lfs diff=lfs merge=lfs binary
-*.woff2 filter=lfs diff=lfs merge=lfs binary
+src/content/*/** linguist-vendored=true
