@@ -7,9 +7,13 @@ INPDIR	= ${PWD}/src
 test: build summary
 
 
-.PHONY: release
-release: clean build clean
-	7z a -tzip src.zip src/*
+.PHONY: full
+full: clean test
+
+
+.PHONY: archive
+archive:
+	7z a -tzip ${OUTDIR}/HCMUT-Latex-Report-Template.zip ${INPDIR}/*
 
 
 .PHONY: clean
