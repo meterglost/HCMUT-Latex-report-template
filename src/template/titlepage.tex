@@ -1,114 +1,116 @@
 \clearpage
 
+\pagestyle{blank}
+
 \begin{titlepage}
-\centering
+    \centering
 
-\MakeUppercase{{\Large\bf \university}}
+    \MakeUppercase{{\Large\bf \university}}
 
-\MakeUppercase{{\faculty}}
+    \MakeUppercase{{\faculty}}
 
-\vspace{72pt}
+    \vspace{72pt}
 
-\includegraphics[height=5cm]{\currfiledir logo.png}
+    \includegraphics[height=5cm]{\currfiledir logo.png}
 
-\vspace{72pt}
+    \vspace{72pt}
 
-\MakeUppercase{{\large\bf \subject}}
+    \MakeUppercase{{\large\bf \subject}}
 
-\vspace{18pt}
+    \vspace{18pt}
 
-\parbox[c][\baselineskip]{\textwidth}{\rule{\textwidth}{0.5pt}}
+    \parbox[c][\baselineskip]{\textwidth}{\rule{\textwidth}{0.5pt}}
 
-\begin{minipage}{0.8\textwidth}
+    \begin{minipage}{0.8\textwidth}
 
-    Đề tài: \project
+        Đề tài: \project
 
-    \begin{minipage}{\linewidth}
-        \begin{minipage}{0.5\linewidth}
-            Lớp: \class
-        \end{minipage}%
-        \begin{minipage}{0.5\linewidth}
-            Nhóm: \group
-        \end{minipage}%
+        \begin{minipage}{\linewidth}
+            \begin{minipage}{0.5\linewidth}
+                Lớp: \class
+            \end{minipage}%
+            \begin{minipage}{0.5\linewidth}
+                Nhóm: \group
+            \end{minipage}%
+        \end{minipage}
+
+        % \vspace{-\baselineskip}
+        % \begin{table}[H]
+        %     \captionsetup{labelformat=empty, listformat=empty, skip=0pt}
+        %     \caption[Giảng viên hướng dẫn]{}
+        %     \setlength{\tabcolsep}{0pt}
+        %     \begin{tabularx}{\linewidth}
+        %     {
+        %         >{\hsize=0.3\linewidth\raggedright\arraybackslash}X
+        %         >{\hsize=0.7\linewidth\raggedright\arraybackslash}X
+        %     }
+        %         Giảng viên hướng dẫn: &
+        %         \begin{minipage}[t]{\hsize}
+        %         \itemizeFromFile{instructors.txt}
+        %         \end{minipage}
+        %     \end{tabularx}
+        % \end{table}
+        % \vspace{-\baselineskip}
+
+        % \vspace{-\baselineskip}
+        % \begin{table}[H]
+        %     \captionsetup{labelformat=empty, listformat=empty, skip=0pt}
+        %     \caption[Sinh viên tham gia]{}
+        %     \setlength{\tabcolsep}{0pt}
+        %     \begin{tabularx}{\linewidth}
+        %     {
+        %         >{\hsize=0.3\linewidth\raggedright\arraybackslash}X
+        %         >{\hsize=0.7\linewidth\raggedright\arraybackslash}X
+        %     }
+        %         Sinh viên: &
+        %         \begin{minipage}[t]{\hsize}
+        %         \itemizeFromFile{students.txt}
+        %         \end{minipage}
+        %     \end{tabularx}
+        % \end{table}
+        % \vspace{-\baselineskip}
+
+        \vspace{\abovedisplayskip}
+        \begin{minipage}{\linewidth}
+            \begin{minipage}[t]{0.3\linewidth}
+                Giảng viên hướng dẫn:
+            \end{minipage}%
+            \begin{minipage}[t]{0.7\linewidth}
+                \begin{NoHyper}
+                    \begin{itemize}
+                        \begin{DTLenvforeach*}{instructor}{\name=name}
+                            \item {\name}
+                        \end{DTLenvforeach*}
+                    \end{itemize}
+                \end{NoHyper}
+            \end{minipage}%
+        \end{minipage}
+        \vspace{-\belowdisplayskip+\baselineskip}
+
+        \vspace{\abovedisplayskip}
+        \begin{minipage}{\linewidth}
+            \begin{minipage}[t]{0.3\linewidth}
+                Sinh viên:
+            \end{minipage}%
+            \begin{minipage}[t]{0.7\linewidth}
+                \begin{NoHyper}
+                    \begin{itemize}
+                        \begin{DTLenvforeach*}{student}{\id=id,\name=name}
+                            \item {\name} - {\id}
+                        \end{DTLenvforeach*}
+                    \end{itemize}
+                \end{NoHyper}
+            \end{minipage}%
+        \end{minipage}
+        \vspace{-\belowdisplayskip+\baselineskip}
+
     \end{minipage}
 
-    % \vspace{-\baselineskip}
-    % \begin{table}[H]
-    %     \captionsetup{labelformat=empty, listformat=empty, skip=0pt}
-    %     \caption[Giảng viên hướng dẫn]{}
-    %     \setlength{\tabcolsep}{0pt}
-    %     \begin{tabularx}{\linewidth}
-    %     {
-    %         >{\hsize=0.3\linewidth\raggedright\arraybackslash}X
-    %         >{\hsize=0.7\linewidth\raggedright\arraybackslash}X
-    %     }
-    %         Giảng viên hướng dẫn: &
-    %         \begin{minipage}[t]{\hsize}
-    %         \itemizeFromFile{instructors.txt}
-    %         \end{minipage}
-    %     \end{tabularx}
-    % \end{table}
-    % \vspace{-\baselineskip}
+    \parbox[c][\baselineskip]{\textwidth}{\rule{\textwidth}{0.5pt}}
 
-    % \vspace{-\baselineskip}
-    % \begin{table}[H]
-    %     \captionsetup{labelformat=empty, listformat=empty, skip=0pt}
-    %     \caption[Sinh viên tham gia]{}
-    %     \setlength{\tabcolsep}{0pt}
-    %     \begin{tabularx}{\linewidth}
-    %     {
-    %         >{\hsize=0.3\linewidth\raggedright\arraybackslash}X
-    %         >{\hsize=0.7\linewidth\raggedright\arraybackslash}X
-    %     }
-    %         Sinh viên: &
-    %         \begin{minipage}[t]{\hsize}
-    %         \itemizeFromFile{students.txt}
-    %         \end{minipage}
-    %     \end{tabularx}
-    % \end{table}
-    % \vspace{-\baselineskip}
+    \vfill
 
-    \vspace{\abovedisplayskip}
-    \begin{minipage}{\linewidth}
-        \begin{minipage}[t]{0.3\linewidth}
-            Giảng viên hướng dẫn:
-        \end{minipage}%
-        \begin{minipage}[t]{0.7\linewidth}
-            \begin{NoHyper}
-            \begin{itemize}
-                \begin{DTLenvforeach*}{instructor}{\name=name}
-                \item {\name}
-                \end{DTLenvforeach*}
-            \end{itemize}
-            \end{NoHyper}
-        \end{minipage}%
-    \end{minipage}
-    \vspace{-\belowdisplayskip+\baselineskip}
-
-    \vspace{\abovedisplayskip}
-    \begin{minipage}{\linewidth}
-        \begin{minipage}[t]{0.3\linewidth}
-            Sinh viên:
-        \end{minipage}%
-        \begin{minipage}[t]{0.7\linewidth}
-            \begin{NoHyper}
-            \begin{itemize}
-                \begin{DTLenvforeach*}{student}{\id=id,\name=name}
-                \item {\name} - {\id}
-                \end{DTLenvforeach*}
-            \end{itemize}
-            \end{NoHyper}
-        \end{minipage}%
-    \end{minipage}
-    \vspace{-\belowdisplayskip+\baselineskip}
-
-\end{minipage}
-
-\parbox[c][\baselineskip]{\textwidth}{\rule{\textwidth}{0.5pt}}
-
-\vfill
-
-{\location}, tháng {\the\month} năm {\the\year}
+    {\location}, tháng {\the\month} năm {\the\year}
 
 \end{titlepage}
 

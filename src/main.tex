@@ -11,30 +11,9 @@
 
 \begin{document}
 
-\pagestyle{titlepage}
-\input{\currfiledir template/titlepage}
-
-\clearpage
-
-\pagestyle{toc}
-\tableofcontents
-\listoffigures
-\listoftables
-
-\clearpage
-
-\input{\currfiledir template/assignment}
-
-\clearpage
-
-\pagestyle{content}
-\setcounter{table}{0}
-\setcounter{figure}{0}
-\onehalfspacing%
-\input{\currfiledir content/content}
-
-\clearpage
-
-\printbibliography%
+\input{template/titlepage}
+\input{template/assignment}
+\input{template/summary}
+\input{content/content}
 
 \end{document}
