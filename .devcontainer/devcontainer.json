@@ -10,7 +10,9 @@
     },
 
     // Features to add to the dev container. More info: https://containers.dev/features.
-    // "features": {},
+    "features": {
+        "ghcr.io/trunk-io/devcontainer-feature/trunk": "latest"
+    },
 
     // Use 'forwardPorts' to make a list of ports inside the container available locally.
     // "forwardPorts": [],
@@ -35,6 +37,18 @@
                 ],
                 "latex-workshop.synctex.afterBuild.enabled": true,
 
+                "path-autocomplete.pathMappings": {
+                    "\\currfiledir": "${fileDirname}"
+                },
+                "path-autocomplete.excludedItems": {
+                    "**/_minted*": { "when": "**/*{.tex,sty}", "isDir": true }
+                },
+                "path-autocomplete.triggerOutsideStrings": true,
+                "path-autocomplete.disableUpOneFolder": true,
+                "editor.quickSuggestions": {
+                    "strings": "on"
+                },
+
                 "[bibtex][latex][tex]": {
                     "editor.defaultFormatter": "James-Yu.latex-workshop"
                 },
@@ -44,10 +58,12 @@
                 }
             },
             "extensions": [
-                "trunk.io",
                 "ionutvmi.path-autocomplete",
-                "eamodio.gitlens",
-                "James-Yu.latex-workshop"
+                "mhutchie.git-graph",
+                "James-Yu.latex-workshop",
+                "yzhang.markdown-all-in-one",
+                "bierner.markdown-preview-github-styles",
+                "Codeium.codeium"
             ]
         }
     }

@@ -1,19 +1,11 @@
-FROM docker.io/texlive/texlive:latest-basic
+FROM docker.io/texlive/texlive:latest-full
 
-WORKDIR /workspaces
+RUN tlmgr paper a4
 
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends curl=* nodejs=* git=* p7zip-full=* locales=* locales-all=* expect=* \
+    && apt-get install -y --no-install-recommends git=* p7zip-full=* locales=* locales-all=* \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 ENV LC_ALL en_US.UTF-8
 ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US.UTF-8
-
-RUN curl https://get.trunk.io -fsSL -o install.sh && bash install.sh && rm install.sh
-
-COPY texlive_requirements.txt .
-# trunk-ignore(hadolint/SC2046)
-RUN tlmgr install $(cat texlive_requirements.txt) && tlmgr path add && rm texlive_requirements.txt
-
-RUN tlmgr paper a4
