@@ -31,6 +31,7 @@
 
 \usepackage{silence}
 \WarningFilter{bxcalcize}{Functionality}
+\WarningFilter{blindtext}{vietnamese not defined, using English instead}
 
 \RequirePackage{settings/_init}
 \RequirePackage{settings/_page}
