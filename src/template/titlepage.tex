@@ -2,6 +2,11 @@
 
 \pagestyle{blank}
 
+\ifthenelse{\equal{\print}{twoside}}{
+    \setcounter{page}{0}
+    \null\newpage\clearpage
+}{}
+
 \begin{titlepage}
     \centering
 
@@ -115,3 +120,7 @@
 \end{titlepage}
 
 \clearpage
+
+\ifthenelse{\equal{\print}{twoside}}{
+    \null\newpage\clearpage
+}{}

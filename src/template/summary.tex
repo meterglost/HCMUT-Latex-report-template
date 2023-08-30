@@ -7,3 +7,9 @@
 \listoftables
 
 \clearpage
+
+\ifthenelse{\equal{\print}{twoside}}{
+    \ifthenelse{\isodd{\the\ReadonlyShipoutCounter}}{}{
+        \null\newpage\clearpage
+    }
+}{}
