@@ -12,7 +12,7 @@ full: clean test
 
 
 .PHONY: archive
-archive:
+archive: clean
 	7z a -tzip ${OUTDIR}/HCMUT-Latex-Report-Template.zip ${INPDIR}/*
 
 
