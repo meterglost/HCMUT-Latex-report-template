@@ -1,5 +1,10 @@
 \usepackage{polyglossia}
-\setmainlanguage{vietnamese}
+
+\duallang{
+    \setmainlanguage{english}
+}{
+    \setmainlanguage{vietnamese}
+}
 
 \usepackage{fontspec}
 \usepackage[fixed]{fontawesome5}
@@ -38,5 +43,5 @@
 
 \usepackage[tocskip=6pt]{parskip}
 \makeatletter
-    \newcommand{\@minipagerestore}{\setlength{\parskip}{6pt}}
+\newcommand{\@minipagerestore}{\setlength{\parskip}{6pt}}
 \makeatother

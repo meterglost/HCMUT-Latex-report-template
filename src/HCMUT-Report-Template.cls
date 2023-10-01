@@ -12,20 +12,24 @@
 % \DeclareOption{customoption}{\setboolean{customoption}{true}}
 
 \DeclareKeys{
-    title.store = \pdftitle,
+    lang.store = \pdflang,
     author.store = \pdfauthor,
     subject.store = \pdfsubject,
+    project.store = \pdfproject,
     passwd.store = \pdfpasswd,
     print.store = \print,
 }
 \SetKeys{
-    title = ,
+    lang = vi,
     author = ,
     subject = ,
+    project = ,
 }
 
 \ProcessOptions
 \ProcessKeyOptions
+
+\newcommand{\duallang}[2]{\ifthenelse{\equal{\pdflang}{en}}{#1}{\ifthenelse{\equal{\pdflang}{vi}}{#2}{}}}
 
 \LoadClass[a4paper]{article}
 
