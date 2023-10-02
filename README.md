@@ -1,45 +1,38 @@
 # HCMUT Latex report template
 
-## Usage
-
-### Using Overleaf
+## Using Overleaf
 
 On [release page](https://github.com/meterglost/HCMUT-Latex-report-template/releases/latest), download `HCMUT-Latex-Report-Template.zip`, upload on Overleaf, change compiler to `XeLaTeX` and recompile
 
-### Build locally
+## Build locally
 
 Clone this project and open in devcontainer to code and compile.
 
-#### Requirement
-
--   Docker
--   VSCode with [devcontainer extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
-
-#### Compile your latex code to PDF
+Compile your latex code to PDF
 
 ```shell
 make test
 ```
 
-#### Compile your latex code to PDF without cache
+Compile your latex code to PDF without cache
 
 ```shell
 make full
 ```
 
-#### Clear compiler cache
+Clear compiler cache
 
 ```shell
 make clean
 ```
 
-#### Create zip archive file to upload on Overleaf
+Create zip archive file to upload on Overleaf
 
 ```shell
 make archive
 ```
 
-## Documentclass
+## About documentclass
 
 This template provide `HCMUT-Report-Template` class to use in command `\documentclass{<class>}`
 
@@ -47,9 +40,10 @@ This template provide `HCMUT-Report-Template` class to use in command `\document
 
 ```latex
 \documentclass[
-    title = Report title,
-    author = Report author,
-    subject = Brief description of the document,
+    lang = en,
+    author = Ha Vinh Nguyen,
+    subject = ,
+    project = ,
     passwd = 456,
     print = twoside,
 ]{HCMUT-Report-Template}
@@ -57,51 +51,36 @@ This template provide `HCMUT-Report-Template` class to use in command `\document
 
 ### Options
 
-#### title
+`lang` = `en` | `vi`
 
-_Possible value:_ any
-
-_Description:_ Add title field in PDF document metadata. Maybe used by browsers or PDF viewer applications to display title instead of PDF file name.
+Set document default language
 
 ---
 
-#### author
+`author` = any
 
-_Possible value:_ any
-
-_Description:_ Add author field in PDF document metadata
+Add author field in PDF document metadata
 
 ---
 
-#### subject
+`subject` = any
 
-_Possible value:_ any
-
-_Description:_ Add subject field in PDF document metadata. Maybe used by search engines or document management systems.
+Set subject on title page and add subject field in PDF document metadata.
 
 ---
 
-#### passwd
+`passwd` = any
 
-_Possible value:_ any
+Set password for PDF document
 
-_Description:_ Set password for PDF document
-
-_Note that when set password, Overleaf will not be able to display the pdf. You have to download it, open it locally, and enter the password before being able to view the content._
+> [!NOTE]\
+> When password is set, Overleaf will not be able to display the pdf. You need to download the pdf, open it with a supported software, and enter the password before being able to view the content.
 
 ---
 
-#### print
+`print` = `oneside` | `twoside`
 
-_Possible value:_ oneside, twoside
+Specify that the document is intended to be print.
 
-_Description:_
-
--   oneside
-
-    -   Add a left-only gutter margin to the PDF document.
-
--   twoside
-
-    -   Add a left-right interleaved gutter margin to the PDF document.
-    -   Add blank pages to make the title page, TOC page, first page of the PDF document place on the right side.
+> [!NOTE]\
+> If not set, the document is intended to be view as electronic document.
