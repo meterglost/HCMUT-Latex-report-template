@@ -10,112 +10,56 @@
 \begin{titlepage}
     \centering
 
-    \MakeUppercase{{\Large\bf \university}}
+    \textbf{\uppercase{\Large\university}}
 
-    \MakeUppercase{{\faculty}}
+    \uppercase{\faculty}
 
-    \vspace{72pt}
+    \vspace{64pt}
 
     \includegraphics[height=5cm]{\currfiledir logo.png}
 
-    \vspace{72pt}
+    \vspace{64pt}
 
-    \MakeUppercase{{\large\bf \subject}}
+    \textbf{\uppercase{\large \ifthenelse{\equal{\pdfsubject}{}}{Subject: \makebox[200pt]{\dotfill}}{\pdfsubject}}}
 
-    \vspace{18pt}
+    \parbox[c][\baselineskip]{\textwidth}{\vfill\rule{\textwidth}{0.5pt}\vfill}
 
-    \parbox[c][\baselineskip]{\textwidth}{\rule{\textwidth}{0.5pt}}
+    \hspace{0.1\textwidth}
+    \textbf{\textit{\uppercase{\Large \ifthenelse{\equal{\pdfproject}{}}{Project: \makebox[200pt]{\dotfill}}{\pdfproject}}}}
+    \hspace{0.1\textwidth}
 
-    \begin{minipage}{0.8\textwidth}
+    \parbox[c][\baselineskip]{\textwidth}{\vfill\rule{\textwidth}{0.5pt}\vfill}
 
-        Đề tài: \project
+    \vspace{\baselineskip}
 
-        \begin{minipage}{\linewidth}
-            \begin{minipage}{0.5\linewidth}
-                Lớp: \class
-            \end{minipage}%
-            \begin{minipage}{0.5\linewidth}
-                Nhóm: \group
-            \end{minipage}%
-        \end{minipage}
-
-        % \vspace{-\baselineskip}
-        % \begin{table}[H]
-        %     \captionsetup{labelformat=empty, listformat=empty, skip=0pt}
-        %     \caption[Giảng viên hướng dẫn]{}
-        %     \setlength{\tabcolsep}{0pt}
-        %     \begin{tabularx}{\linewidth}
-        %     {
-        %         >{\hsize=0.3\linewidth\raggedright\arraybackslash}X
-        %         >{\hsize=0.7\linewidth\raggedright\arraybackslash}X
-        %     }
-        %         Giảng viên hướng dẫn: &
-        %         \begin{minipage}[t]{\hsize}
-        %         \itemizeFromFile{instructors.txt}
-        %         \end{minipage}
-        %     \end{tabularx}
-        % \end{table}
-        % \vspace{-\baselineskip}
-
-        % \vspace{-\baselineskip}
-        % \begin{table}[H]
-        %     \captionsetup{labelformat=empty, listformat=empty, skip=0pt}
-        %     \caption[Sinh viên tham gia]{}
-        %     \setlength{\tabcolsep}{0pt}
-        %     \begin{tabularx}{\linewidth}
-        %     {
-        %         >{\hsize=0.3\linewidth\raggedright\arraybackslash}X
-        %         >{\hsize=0.7\linewidth\raggedright\arraybackslash}X
-        %     }
-        %         Sinh viên: &
-        %         \begin{minipage}[t]{\hsize}
-        %         \itemizeFromFile{students.txt}
-        %         \end{minipage}
-        %     \end{tabularx}
-        % \end{table}
-        % \vspace{-\baselineskip}
-
-        \vspace{\abovedisplayskip}
-        \begin{minipage}{\linewidth}
-            \begin{minipage}[t]{0.3\linewidth}
-                Giảng viên hướng dẫn:
-            \end{minipage}%
-            \begin{minipage}[t]{0.7\linewidth}
-                \begin{NoHyper}
-                    \begin{itemize}
-                        \begin{DTLenvforeach*}{instructor}{\name=name}
-                            \item {\name}
-                        \end{DTLenvforeach*}
-                    \end{itemize}
-                \end{NoHyper}
-            \end{minipage}%
-        \end{minipage}
-        \vspace{-\belowdisplayskip+\baselineskip}
-
-        \vspace{\abovedisplayskip}
-        \begin{minipage}{\linewidth}
-            \begin{minipage}[t]{0.3\linewidth}
-                Sinh viên:
-            \end{minipage}%
-            \begin{minipage}[t]{0.7\linewidth}
-                \begin{NoHyper}
-                    \begin{itemize}
-                        \begin{DTLenvforeach*}{student}{\id=id,\name=name}
-                            \item {\name} - {\id}
-                        \end{DTLenvforeach*}
-                    \end{itemize}
-                \end{NoHyper}
-            \end{minipage}%
-        \end{minipage}
-        \vspace{-\belowdisplayskip+\baselineskip}
-
+    \begin{minipage}{0.25\linewidth}
+        \duallang{Group:}{Nhóm:}
+    \end{minipage}%
+    \begin{minipage}[t]{0.75\linewidth}
+        \ifthenelse{\equal{\group}{}}{\dotfill}{\group}
     \end{minipage}
 
-    \parbox[c][\baselineskip]{\textwidth}{\rule{\textwidth}{0.5pt}}
+    \vspace{\baselineskip}
+
+    \begin{minipage}{0.25\linewidth}
+        \duallang{Instructor(s):}{Người hướng dẫn:}
+    \end{minipage}%
+    \begin{minipage}[t]{0.75\linewidth}
+        \ifthenelse{\equal{\instructors}{}}{\dotfill}{\instructors}
+    \end{minipage}
+
+    \vspace{\baselineskip}
+
+    \begin{minipage}{0.25\linewidth}
+        \duallang{Implementer(s):}{Người thực hiện:}
+    \end{minipage}%
+    \begin{minipage}[t]{0.75\linewidth}
+        \ifthenelse{\equal{\implementers}{}}{\dotfill}{\implementers}
+    \end{minipage}
 
     \vfill
 
-    {\location}, tháng {\the\month} năm {\the\year}
+    \location, \duallang{\the\month/\the\year}{tháng \the\month năm \the\year}
 
 \end{titlepage}
 

@@ -61,12 +61,15 @@
 \fancypagestyle{default}{
     \fancyhf{}
     \ifthenelse{\equal{\print}{twoside}}{
-        \fancyhead[R]{\ifthenelse{\isodd{\thepage}}{\pagetitle}{}}
-        \fancyhead[L]{\ifthenelse{\isodd{\thepage}}{}{\pagetitle}}
+        \ifthenelse{\isodd{\thepage}}{
+            \fancyhead[R]{\pdfsubject\ifthenelse{\equal{\group}{}}{}{ - \group}}
+        }{
+            \fancyhead[L]{\pdfsubject\ifthenelse{\equal{\group}{}}{}{ - \group}}
+        }
     }{
-        \fancyhead[R]{\pagetitle}
+        \fancyhead[R]{\pdfsubject \ifthenelse{\equal{\group}{}}{}{ - \group}}
     }
-    \fancyfoot[C]{Trang \thepage/\pageref*{LastPage}}
+    \fancyfoot[C]{\duallang{Page}{Trang} \thepage/\pageref*{LastPage}}
     \renewcommand{\headrulewidth}{0.4pt}
     \renewcommand{\footrulewidth}{0.4pt}
 }
